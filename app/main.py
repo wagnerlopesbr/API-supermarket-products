@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 from app.routers import router as api_router
-import schedule
-import time
-import threading
-import update_prices_daily as up
+# import schedule
+# import time
+# import threading
+# import update_prices_daily as up
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -33,16 +33,16 @@ async def read_root():
         }
     }
 
-def job():
-    print("Updating prices...\n")
-    up.update_prices_daily()
+# def job():
+#     print("Updating prices...\n")
+#     up.update_prices_daily()
 
 
-def schedule_job():
-    schedule.every().day.at("08:00", "America/Sao_Paulo").do(job)
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
+# def schedule_job():
+#     schedule.every().day.at("08:00", "America/Sao_Paulo").do(job)
+#     while True:
+#         schedule.run_pending()
+#         time.sleep(1)
 
 
-threading.Thread(target=schedule_job).start()
+# threading.Thread(target=schedule_job).start()
