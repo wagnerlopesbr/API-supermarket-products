@@ -19,7 +19,7 @@ def update_prices_daily():
         db.commit()
     except Exception as e:
         db.rollback()
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail=f"ERROR_______UPDATING_______PRICES: {str(e)}")
     finally:
         db.close()
         print(f"\n{datetime.now()}: Products updated successfully and session closed.\n\n\n")
