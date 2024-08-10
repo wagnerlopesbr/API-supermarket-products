@@ -46,6 +46,6 @@ def read_category(category_id: int, db: Session = Depends(get_db)):
 
 
 @router.get("/", response_model=list[Category])
-def read_categories(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
-    categories = crud.get_categories(db=db, skip=skip, limit=limit)
+def read_categories(skip: int = 0, db: Session = Depends(get_db)):
+    categories = crud.get_categories(db=db, skip=skip)
     return categories

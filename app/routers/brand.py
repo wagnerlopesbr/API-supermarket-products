@@ -46,6 +46,6 @@ def read_brand(brand_id: int, db: Session = Depends(get_db)):
 
 
 @router.get("/", response_model=list[Brand])
-def read_brands(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
-    brands = crud.get_brands(db=db, skip=skip, limit=limit)
+def read_brands(skip: int = 0, db: Session = Depends(get_db)):
+    brands = crud.get_brands(db=db, skip=skip)
     return brands

@@ -11,7 +11,7 @@ class Product(Base):
     name = Column(String, index=True)
     price = Column(Integer)
     brand_id = Column(Integer, ForeignKey("brands.id"))
-    category_id = Column(Integer, ForeignKey("categories.id"))
+    category_id = Column(Integer, ForeignKey("categories.id"))  # I was about to use a ARRAY type, but SQLAlchemy does not support it with foreign keys
 
     brand = relationship("Brand", back_populates="products")
     category = relationship("Category", back_populates="products")
