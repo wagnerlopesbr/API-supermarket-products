@@ -41,15 +41,18 @@ def read_formatted_data(db: Session = Depends(get_db)):
         products = crud.get_products(db)
         formatted_products = []
         for product in products:
-            cents = f"{str(product.price)[-2:]}"
-            if product.price < 100:
-                price_str = f"0.{cents}"
-            else:
-                price_str = f"{str(product.price)[:-2]}.{cents}"
+            price_dict = {}
+            for supermarket_id, price in product.prices.items():
+                cents = f"{str(price)[-2:]}"
+                if price < 100:
+                    price_str = f"0.{cents}"
+                else:
+                    price_str = f"{str(price)[:-2]}.{cents}"
+                price_dict[supermarkets[int(supermarket_id) - 1].name] = price_str
             formatted_product = {
                 "product": f"{product.name} - {brand_dict.get(product.brand_id)}",
                 "category": category_dict.get(product.category_id),
-                "price": price_str
+                "prices": price_dict
             }
             formatted_products.append(formatted_product)
         formatted_products_response = {
