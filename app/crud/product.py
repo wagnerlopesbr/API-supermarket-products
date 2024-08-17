@@ -13,8 +13,8 @@ def get_products(db: Session, skip: int = 0, limit: int = None):
 
 def create_product(db: Session, product: ProductCreate):
     db_product = ProductModel(
-        name=product.name, 
-        price=product.price,
+        name=product.name,
+        prices=product.prices,
         brand_id=product.brand_id,
         category_id=product.category_id
     )
@@ -28,7 +28,7 @@ def update_product(db: Session, product_id: int, product: ProductUpdate):
     db_product = get_product(db, product_id)
     if db_product:
         db_product.name = product.name
-        db_product.price = product.price
+        db_product.prices = product.prices
         db_product.brand_id = product.brand_id
         db_product.category_id = product.category_id
         db.commit()

@@ -1,9 +1,10 @@
 from pydantic import BaseModel
+from typing import Dict
 
 
 class ProductBase(BaseModel):
     name: str
-    price: int
+    prices: Dict[int, int]
     brand_id: int
     category_id: int
 
