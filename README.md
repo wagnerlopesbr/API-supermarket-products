@@ -1,4 +1,6 @@
-# Supermarket Products API: [Deploy](https://supermarket-products-api.up.railway.app/)
+# Supermarket Products API<!-- : [Deploy](https://supermarket-products-api.up.railway.app/)-->
+> **Nota:** O link do deploy foi comentado porque foi interrompido para ser rodado localmente.<br>
+> **Note:** The deployment link was commented out because it was stopped to run locally.
 
 ### English
 
